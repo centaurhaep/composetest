@@ -1,12 +1,12 @@
-version: "3.9"
+version: "${COMPOSE_VERSION}"
 services:
   web:
     build: .
     ports:
-      - "8000:5000"
+      - "${EXTERNAL_PORT}:${INTERNAL_PORT}"
     volumes:
       - .:/code
     environment:
-      FLASK_ENV: development
+      FLASK_ENV: ${FLASK_ENV}
   redis:
     image: "redis:alpine"
